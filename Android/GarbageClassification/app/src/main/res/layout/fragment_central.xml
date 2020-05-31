@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        app:title="我的"
+        app:titleTextColor="@color/black"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_avatar"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/morentouxiang"
+            android:layout_width="64dp"
+            android:layout_height="64dp"/>
+
+        <TextView
+            android:id="@+id/user_nickname"
+            android:text="点击登录"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:background="#e8e8e8"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/change_password"
+            android:layout_marginTop="20dp"
+            android:text="修改密码"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableEnd="@mipmap/gengduo1"
+            android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/mima"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/edit_user_info"
+            android:text="编辑个人信息"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableEnd="@mipmap/gengduo1"
+            android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/xinxi"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <View
+            android:background="#e8e8e8"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/about_us"
+            android:layout_marginTop="20dp"
+            android:text="关于我们"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableEnd="@mipmap/gengduo1"
+            android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/guanyu"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/logout"
+            android:text="退出登录"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableEnd="@mipmap/gengduo1"
+            android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/tuichu"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

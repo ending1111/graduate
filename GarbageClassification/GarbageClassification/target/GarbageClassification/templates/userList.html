@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title></title>
+    <script type="text/javascript" src="../static/layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css">
+</head>
+<style>
+    .layui-table-cell {
+        height: auto;
+        line-height: 43px;
+    }
+</style>
+<body>
+<div>
+    <table id="user" lay-filter="user"></table>
+</div>
+</body>
+<script type="application/javascript"  th:inline="none">
+    var $;
+    var layer;
+    var table;
+    layui.use(['table','form','layer','jquery'],function () {
+        table=layui.table;
+        var form=layui.form;
+        layer=layui.layer;
+        $=layui.jquery;
+        form.render();
+        table.render({
+            elem: '#user'
+            ,toolbar:'#headbar'
+            ,height: 'full-20'
+            ,url: '/userList' //数据接口
+            ,page: true ,//开启分页
+            limits : [ 10, 20,50, 100 ],
+            limit : 10
+            ,cols:[[
+                {field: 'username', title: '用户名', width:150,align:'center'}
+                ,{field: 'nickname',    title: '昵称', width:150,align:'center'}
+                ,{field: 'phone', title: '电话', width:150,align:'center'}
+                ,{field: 'avatar', title: '头像', width:200,align:'center',templet:function (data){
+                        return "<img style='width: 100px;' src='"+data.avatar+"'>"
+                    }},
+                {fixed:'right',title:'操作',width:'200',toolbar:'#operation',align:'center'}
+            ]]
+        })
+        table.on('toolbar(user)',function (obj){
+            var keyword=$("#keyword").val();
+            switch (obj.event){
+                case 'search':
+                    searchUserList(keyword);
+                    break;
+            }
+        })
+        table.on('tool(user)',function (obj) {
+            var data=obj.data;
+            var event=obj.event;
+            switch (event){
+                case 'delete':
+                    deleteSelected(data.id);
+                    break;
+            }
+        })
+
+        function deleteSelected(ids){
+            $.ajax({
+                data:JSON.stringify({userId:ids}),
+                url:'/deleteUser',
+                dataType:'json',
+                contentType:'application/json',
+                method:'post',
+                success:function(result){
+                    if(result.message.indexOf("成功")>0){
+                        refreshTable('user');
+                    }
+                    layer.msg(result.message);
+                }
+            })
+        }
+        function  refreshTable(tableId){
+            table.reload(tableId,{
+                page:{curr:1}
+            })
+        }
+
+        function searchUserList(keyword){
+            table.reload('user',
+                {page:
+                        {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                    , where: { "keyword":keyword}//这里传参  向后台
+                    , url: '/searchUserList'//后台做模糊搜索接口路径
+                    , method: 'get'
+                });
+        }
+
+    })
+</script>
+<script type="text/html" id="headbar">
+    <input class="text" style="height:30px;width:157px;" name="keyword" id="keyword" placeholder="请输入姓名">
+    <a lay-event="search" lay-filter="" style="position: absolute;left: 144px;">
+      <i class="layui-icon layui-icon-search" style="background:#fff;padding:5px;"></i>
+    </a>
+</script>
+<script type="text/html" id="operation">
+    <a lay-event="delete" class="layui-btn layui-btn-danger layui-btn-sm" ><icon class="layui-icon">&#xe640;</icon>删除</a>
+</script>
+</html>

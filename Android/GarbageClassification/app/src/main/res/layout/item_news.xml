@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_news"
+    android:padding="5dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/item_news_image"
+        android:src="@mipmap/morentupian"
+        android:padding="5dp"
+        android:layout_width="110dp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="新闻标题"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:id="@+id/item_news_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="新闻内容"
+            android:textSize="13sp"
+            android:paddingStart="5dp"
+            android:textColor="@color/black3"
+            android:id="@+id/item_news_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_news_date"
+                android:text="发布时间"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:textColor="@color/black6"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/item_news_author"
+                android:text="作者名"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/black6"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

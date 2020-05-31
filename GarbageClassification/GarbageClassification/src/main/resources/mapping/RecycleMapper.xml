@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.prj.dao.RecycleMapper">
+  <resultMap id="BaseResultMap" type="com.prj.model.Recycle">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="garbage_type" jdbcType="INTEGER" property="garbageType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.prj.model.Recycle">
+    <result column="function" jdbcType="LONGVARCHAR" property="function" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, garbage_type
+  </sql>
+  <sql id="Blob_Column_List">
+    function
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_recycle
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_recycle
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.prj.model.Recycle">
+    insert into t_recycle (id, garbage_type, function
+      )
+    values (#{id,jdbcType=INTEGER}, #{garbageType,jdbcType=INTEGER}, #{function,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.prj.model.Recycle">
+    insert into t_recycle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="garbageType != null">
+        garbage_type,
+      </if>
+      <if test="function != null">
+        function,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="garbageType != null">
+        #{garbageType,jdbcType=INTEGER},
+      </if>
+      <if test="function != null">
+        #{function,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.prj.model.Recycle">
+    update t_recycle
+    <set>
+      <if test="garbageType != null">
+        garbage_type = #{garbageType,jdbcType=INTEGER},
+      </if>
+      <if test="function != null">
+        function = #{function,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.prj.model.Recycle">
+    update t_recycle
+    set garbage_type = #{garbageType,jdbcType=INTEGER},
+      function = #{function,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.prj.model.Recycle">
+    update t_recycle
+    set garbage_type = #{garbageType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

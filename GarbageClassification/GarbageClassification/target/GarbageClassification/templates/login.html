@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <script type="text/javascript" src="../static/layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css">
+
+    <style>
+        .main_container {
+            padding: 150px 35% 0 35%;
+            float: right;
+        }
+        .title {
+            font-family: "宋体";
+            color: #FFFFFF;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+            font-size: 36px;
+            height: 40px;
+            width: 30%;
+            margin: 0;
+            padding: 0;
+        }
+        #head {
+            height: 46px;
+            width: 100%;
+            background-color: #393d49;;
+            text-align: center;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        layui.use('form', function(){
+            var form = layui.form();
+            form.render();
+        });
+    </script>
+</head>
+<body style="background:url('../static/images/b1.jpg'); background-size:100%;background-repeat: no-repeat;">
+<div class="header" id="head"> <div class="title">垃圾分类后台管理系统</div></div>
+<div  class="main_container">
+
+    <form class="layui-form" action="/loginAdmin" method="post" style="background: rgba(0,0,0,.2);;padding: 30px 30px 30px 30px;float: right;position: absolute;">
+        <h1 style="text-align: center;font-size:36px;color:whitesmoke">登录</h1>
+        <br/>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名：</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码：</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item"><span th:text="${msg}" style="    margin-left: 110px;color: red"></span></div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formLogin">登录</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

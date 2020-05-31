@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.SearchActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:title=" "
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:maxLines="1"
+                android:id="@+id/content_et"
+                android:textSize="15sp"
+                android:hint="请输入关键词"
+                android:textColorHint="@color/hint"
+                android:textColor="@color/black3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/search_btn"
+                android:text="搜索"
+                android:textSize="13sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:background="@color/blue2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/result_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/no_data"
+                android:textColor="#8a8a8a"
+                android:textSize="15sp"
+                android:text="没有查询到结果"
+                android:drawablePadding="5dp"
+                android:layout_centerInParent="true"
+                android:drawableTop="@mipmap/laji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/history_view"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="搜索历史"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/delete_btn"
+                    android:layout_alignParentEnd="true"
+                    android:src="@mipmap/shanchu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="10dp"
+                android:id="@+id/recycler_history"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

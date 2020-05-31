@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="GarbageClassification:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="GarbageClassification.war">
+      <element id="artifact" artifact-name="GarbageClassification:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_history"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_history_name"
+        android:text="垃圾名称"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/item_history_type"
+        android:gravity="end"
+        android:text="[垃圾分类]"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

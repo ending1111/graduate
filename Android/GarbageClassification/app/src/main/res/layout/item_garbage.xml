@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_garbage"
+    android:layout_margin="5dp"
+    android:background="@drawable/dry_trash_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_marginStart="5dp"
+        android:id="@+id/item_garbage_image"
+        android:src="@mipmap/ganlaji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginStart="5dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/item_garbage_name"
+            android:text="报纸"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/item_garbage_type"
+            android:text="干垃圾"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginEnd="5dp"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/gengduo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
